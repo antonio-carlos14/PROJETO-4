@@ -1,14 +1,17 @@
 const cliente= "Juliana Prado"
 const opcaoMenu= 2
 const quantidade= 2
-const formaPagamento= "dinheiro"
-const prato= "capuccino"
-const precoUnitario= 12
-const situacaoPedido= "enviado"
+const formaPagamento= "dinheiro
+const statusPedido= "enviado"
 
-let statuPedido=  "pendente"
-let statusPedido= "pendente"
-let freteStatus= "pendente"
+let prato= ""
+let precoUnitario= 0
+let subtotal= 0
+let situacaoFrete=  ""
+let valorFrete= ""
+let pagamentoMensagem= ""
+let percentualDesconto= ""
+let situacaoPedido= ""
 
 switch (opcaoMenu) {
     case 1:
@@ -30,18 +33,23 @@ switch (opcaoMenu) {
 switch (opcaoMenu) {
     case 1 :
         console.log(6)
+        precoUnitario = 6
         break
     case 2 :
         console.log(12)
+        precoUnitario = 12
         break
     case 3 :
         console.log(15)
+        precoUnitario= 15
         break
     case 4 :
         console.log(20)
+        precoUnitario= 20
         break
     default :
     console.log(0)
+        precoUnitario= 0
 }
 
 
@@ -54,37 +62,44 @@ const total= subtotal * frete
 switch (formaPagamento) {
     case "pix":
         console.log("Pagamento via pix")
+        pagamentoMensagem = "Pagamento via pix"
         break
     case "cartao":
         console.log("Pagamento via cartao")
+        pagamentoMensagem = "Pagamento via cartao"
         break
     case "dinheiro":
         console.log("Pagamento em dinheiro")
+        pagamentoMensagem= "Pagamento em dinheiro"
         break
     default :
-    console.log("Forma de pagamento inválida")
+    console.log("Forma de pagamento invalida"
+        pagamentoMensagem = "Forma de pagamento invalida"
 
 }
 
-switch (desconto) {
+switch (formaPagamento) {
     case "cartao" :
     case "dinheiro" :
         console.log(10)
+        descontoPercentual = 10
         break
     case "pix" :
         console.log(0)
+        descontoPercentual = 0
     default :
         console.log(0)
+        descontoPercentual = 0
 
 }
 
-const valorDesconto = (subtotal * percentualDesconto) / 100
-const valorTotal = subtotal - valorDesconto + valorFrete
+let valorDesconto = (subtotal * descontoPercentual) / 100
+let valorTotal = subtotal - valorDesconto + valorFrete
 
-switch (situacaoPedido) {
+switch (statusPedido) {
     case "pendente" :
         console.log("aguardando pagamento")
-        statusPedido = "aguardando pagamento"
+        situacaoPedido = "aguardando pagamento"
         break
     case "aprovado" :
         console.log("pedido em preparo")
@@ -102,6 +117,29 @@ switch (situacaoPedido) {
     console.log("status desconhecido")
         situacaoPedido = "status desconhecido
 }
+
+const resumo = (`
+===================================================
+               CAFETERIA
+===================================================
+cliente: ${cliente}
+opcaoMenu: ${opcaoMenu}
+quantidade: ${quantidade}
+formaPagamento: ${formaPagamento}
+statusPedido: ${statusPedido}
+prato: ${prato}
+precoUnitario: ${precoUnitario}
+subtotal: ${subtotal}
+freteStatus: ${freteStatus}
+frete: ${frete}
+pagamentoStatus: ${pagamentoStatus}
+descontoPercentual: ${descontoPercentual}
+desconto: ${desconto}
+total: ${total}
+statusMensagem: ${statusMensagem}
+`)
+
+console.log(resumo)
 
 module.exports = {
     cliente,
