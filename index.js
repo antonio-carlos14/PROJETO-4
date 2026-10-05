@@ -4,9 +4,11 @@ const quantidade= 2
 const formaPagamento= "dinheiro"
 const prato= "capuccino"
 const precoUnitario= 12
+const situacaoPedido= "enviado"
 
 let statuPedido=  "pendente"
-let situacaoPedido= "pendente"
+let statusPedido= "pendente"
+let freteStatus= "pendente"
 
 switch (opcaoMenu) {
     case 1:
@@ -49,7 +51,7 @@ const situacaoFrete= subtotal >= 80 ? "Frete grátis" : "Frete pago"
 const frete= subtotal >= 80 ? 0 : 8
 const total= subtotal * frete
 
-switch (pagamento) {
+switch (formaPagamento) {
     case "pix":
         console.log("Pagamento via pix")
         break
@@ -66,32 +68,39 @@ switch (pagamento) {
 
 switch (desconto) {
     case "cartao" :
-        console.log(10)
-        break
     case "dinheiro" :
         console.log(10)
         break
     case "pix" :
         console.log(0)
     default :
+        console.log(0)
 
 }
+
+const valorDesconto = (subtotal * percentualDesconto) / 100
+const valorTotal = subtotal - valorDesconto + valorFrete
 
 switch (situacaoPedido) {
     case "pendente" :
         console.log("aguardando pagamento")
+        statusPedido = "aguardando pagamento"
         break
     case "aprovado" :
         console.log("pedido em preparo")
+        situacaoPedido = "pedido em preparo"
         break
     case "enviado" :
         console.log("pedido a caminho")
+        situacaoPedido = "pedido a caminho"
         break
     case "cancelado" :
     console.log("pedido cancelado")
+        situacaoPedido= "pedido cancelado"
         break
     default :
     console.log("status desconhecido")
+        situacaoPedido = "status desconhecido
 }
 
 module.exports = {
