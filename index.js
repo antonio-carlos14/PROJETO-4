@@ -8,9 +8,11 @@ let prato= ""
 let precoUnitario= 0
 let subtotal= 0
 let situacaoFrete=  ""
-let valorFrete= ""
-let pagamentoMensagem= ""
-let percentualDesconto= ""
+let valorFrete= 0
+let mensagemPagamento= ""
+let percentualDesconto= 0
+let valorDesconto= 0
+let valorTotal= 0
 let situacaoPedido= ""
 
 switch (opcaoMenu) {
@@ -130,8 +132,9 @@ statusPedido: ${statusPedido}
 prato: ${prato}
 precoUnitario: ${precoUnitario}
 subtotal: ${subtotal}
-freteStatus: ${freteStatus}
-frete: ${frete}
+situacaoFrete: ${situavaoFrete}
+valorFrete: ${valorFrete}
+freteStatus: ${freteStatus
 pagamentoStatus: ${pagamentoStatus}
 descontoPercentual: ${descontoPercentual}
 desconto: ${desconto}
